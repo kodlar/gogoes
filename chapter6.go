@@ -63,12 +63,23 @@ func main() {
 	a1()
 	alix()
 
+	x := 5
+	pzero(x)
+	zero(&x)
+	fmt.Println(x)
 }
 
+func zero(xPtr *int) {
+	*xPtr = 0
+}
+
+func pzero(x int) { x = 0 }
+
 func alix() {
-	panic("PANIC")
+	//panic("PANIC")
 	str := recover() // this will never happen
 	fmt.Println(str)
+
 }
 
 func f1() int {
