@@ -4,6 +4,18 @@ import (
 	"fmt"
 )
 
+func orneksoru2(val float64) (res int, retval bool) {
+	res = 0
+	retval = false
+	if int(val)%2 == 0 {
+		res = 1
+		retval = true
+	}
+
+	return res, retval
+
+}
+
 func avarege(xs []float64) float64 {
 
 	total := 0.0
