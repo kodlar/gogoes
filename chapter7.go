@@ -18,14 +18,19 @@ func rectangleArea(x1, y1, x2, y2 float64) float64 {
 	return l * w
 }
 
+func (r *Rectangle) calculateRectangleArea() float64 {
+	l := distance(r.x1, r.y1, r.x1, r.y2)
+	w := distance(r.x1, r.y1, r.x2, r.y1)
+	return l * w
+}
+
 func circleArea(x, y, r float64) float64 {
 	return math.Pi * r * r
 }
 
-// FloatToString çevirir
-func FloatToString(input_num float64) string {
+func FloatToString(inputnum float64) string {
 	// to convert a float number to a string
-	return strconv.FormatFloat(input_num, 'f', 6, 64)
+	return strconv.FormatFloat(inputnum, 'f', 6, 64)
 }
 
 // Circle2 oluştur
@@ -38,6 +43,11 @@ type Circle struct {
 	x float64
 	y float64
 	r float64
+}
+
+// Rectangle oluşturur
+type Rectangle struct {
+	x1, y1, x2, y2 float64
 }
 
 // Playlist oluşturur
@@ -71,10 +81,14 @@ func main() {
 
 	var rx1, ry1 float64 = 0, 0
 	var rx2, ry2 float64 = 10, 10
-	var cx, cy, cr float64 = 0, 0, 5
+
+	r := Rectangle{0, 0, 10, 10}
+	fmt.Println(r.calculateRectangleArea())
 
 	fmt.Println(rectangleArea(rx1, ry1, rx2, ry2))
-	fmt.Println(circleArea(cx, cy, cr))
+
+	//var cx, cy, cr float64 = 0, 0, 5
+	//fmt.Println(circleArea(cx, cy, cr))
 
 	//Birinci nesne  yaratımı tüm değerler 0 olarak atanır
 	//var c Circle
